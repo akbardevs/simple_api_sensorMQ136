@@ -31,8 +31,10 @@ app.post("/save", (req, res) => {
           return;
         }
       }
-
-      jsonData.push(data);
+      if(data<=200)
+      {
+        jsonData.push(data);
+      }
 
       // Write data back to the file
       fs.writeFile(DATA_FILE, JSON.stringify(jsonData, null, 2), (writeErr) => {
